@@ -55,7 +55,7 @@ a {
 }
 
 a:hover {
-  color: violet;
+  color: var(--jay-z-blue);
 }
 
 .btn,
@@ -75,7 +75,7 @@ button {
 }
 
 .btn:hover {
-  color: violet;
+  color: var(--jay-z-blue);
 }
 
 .btn.primary {
@@ -87,7 +87,7 @@ button {
 }
 
 .btn.primary:hover {
-  background: violet;
+  background: var(--jay-z-blue);
 }
 
 .group {
@@ -101,7 +101,7 @@ form .group.actions {
 input:focus,
 textarea:focus {
   outline: none;
-  border: 1px solid violet;
+  border: 1px solid var(--jay-z-blue);
 }
 
 textarea {
