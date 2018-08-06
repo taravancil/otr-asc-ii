@@ -79,7 +79,7 @@ h1 {
 }
 
 a {
-  color: #111;
+  color: #000;
 }
 
 a:hover {
@@ -107,7 +107,7 @@ button {
 }
 
 .btn.primary {
-  background: #111;
+  background: #000;
   border: 0;
   color: #fff;
   font-weight: 700;
