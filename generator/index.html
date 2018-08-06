@@ -11,6 +11,15 @@
 
   	<div class="container">
       <form>
+        <p class="input-group">
+          <label class="btn" for="image-picker">
+            Choose image
+            <input type="file" accept="image/*" id="image-picker" />
+          </label>
+        </p>
+
+        <img id="preview-image"/>
+
         <p class="input-group active">
           <label for="eil">
             Select song
@@ -22,13 +31,6 @@
           <label for="custom">
             Enter custom text
             <input name="lyric-type" id="custom" type="radio" checked />
-          </label>
-        </p>
-
-        <p class="input-group">
-          <label class="btn" for="image-input">
-            Choose image
-            <input type="file" accept="image/*" id="image-input" />
           </label>
         </p>
       </form>

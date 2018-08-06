@@ -5,7 +5,9 @@ import {$} from '/js/utils.js'
   var activeLyrics = ''
 
   var DOM = {
+    imagePicker: $('#image-picker'),
     songPicker: $('#song-picker'),
+    previewImage: $('#preview-image'),
     lyrics: $('#lyrics')
   }
 
@@ -30,6 +32,7 @@ import {$} from '/js/utils.js'
 
   // events
   DOM.songPicker.addEventListener('change', onChangeSong)
+  DOM.imagePicker.addEventListener('change', onUploadImage)
 
   function onChangeSong (e) {
     console.log(e.target)
@@ -37,5 +40,11 @@ import {$} from '/js/utils.js'
     var song = songs[i]
 
     DOM.lyrics.innerText = song.lyrics
+  }
+
+  function onUploadImage () {
+    var file = DOM.imagePicker.files[0]
+    var href = URL.createObjectURL(file)
+    DOM.previewImage.src = href
   }
 })()
