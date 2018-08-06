@@ -7,20 +7,17 @@
   </head>
 
   <body>
+    <style>body { --jay-z-blue: blue; }</style>
+
   	<div class="container">
-  	  <h1>Generator - OTR (ASC)II</h1>
-
-      <p class="lyric">
-      MmmmAintnothingtoitrealoneAintnothingtoitbossAintnothingtoit(nothintoit)realoneAintnothingtoit(theresnothing!)bossHehIpaidthecostWhogontakeitoff?(takeitoff)IrecordthenIball(thenIball!)Iignoredalotofcalls(clickclick)YouainttalkinboutnothinIaintgotnotimeGotthatdineroonmymindOhhIgotrealproblemsjustlikeyou(bitch!)Tellthatbitch"Idontlikeyou"(Idontfuckwithyou!)AintnothingtoitrealoneAintnothingtoit(nothintoit)bossAintnothingtoit(nothintoit)realoneAintnothingtoit(nothintoit)IbossOhhhrealoneUhImabossOhohohohohhhohyeah(LetmegetemByeah)HundredmillioncribthreemillionwatchallfactsNocap;falseniggayounotabossyougotabossNiggasgettingjerkedthatshithurtsItakeitpersonallyNiggasratherworkforthemanthantoworkwithmeJustsotheycanpretendtheyonmylevelthatshitisirkintomePridealwaysgoethbeforethefallalmostcertainlyItsdisturbingwhatIgross(whatIgross!)Surveysaysyounotevenclose(notevenclose)EverybodysbossestilitstimetopayfortheofficeTiltheminvoicesseparatethemenfromtheboysOverherewemeasuresuccessbyhowmanypeoplesuccessfulnexttoyouHerewesayyoubrokeifeverybodyisbrokeexceptforyouBoss!Aintnothingtoitrealone(realone)Aintnothingtoit(nothintoit)boss(bossbossboss)Aintnothingtoit(nothintoit)realone(realone)Aintnothingtoit(nothintoit)IbossOhhhrealoneUhImabossOhohohohohhhohyeahAintnothingtoitIbosssoIboughtmymommaawhipMygreat-great-grandchildrenalreadyrichThatsalotofbrownchilrenonyourForbeslistProbablylookinaroundmycompoundonmyfortressboss(bossbossboss)OhhIberidinroundwithmyseatreclininDroppinmydaughteroffatschooleverymorningWeslammincardoorsIbetrueballinonthesebumwhoresYouainttalkinboutnothingIaintgotnotimebossChilltellthempapstheygottarelax(youtriedit!)Toesinthesandmommagettinfat(snacks)Aintnothingtoit(nothintoit)realone(realone)Aintnothingtoit(nothintoit)boss(boss)Aintnothingtoit(nothintoit)realone(realone)Aintnothingtoit(nothintoit)IbossOohrealoneUhImabossOhohohohohhhohyeahOhhhohhImabossShoutouttoRumiandSirloveBlue
-    </p>
-
-
       <form>
         <p class="input-group active">
           <label for="eil">
-            Select a song from EVERYTHING IS LOVE
+            Select song
             <input name="lyric-type" id="eil" type="radio" checked />
           </label>
+
+          <select id="song-picker"></select>
 
           <label for="custom">
             Enter custom text
@@ -34,15 +31,12 @@
             <input type="file" accept="image/*" id="image-input" />
           </label>
         </p>
-
-        <p class="input-group">
-          Does this look ok?
-          <button class="hidden btn">Generate</button>
-        </p>
       </form>
+
+      <div id="lyrics"></div>
     </div>
   </body>
 
-  <script src="/pxon.js" type="module"></script>
-  <script src="/js/generator.js" type="text/javascript"></script>
+  <script src="/js/pxon.js" type="module"></script>
+  <script src="/js/generator.js" type="module"></script>
 </html>
