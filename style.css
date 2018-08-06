@@ -1,54 +1,14 @@
-@font-face {
-  font-family: 'Inter UI';
-  src: url('/fonts/Inter-UI-Regular.woff2') format('woff2'),
-       url('/fonts/Inter-UI-Regular.woff') format('woff');
-  font-display: optional;
-  font-weight: regular;
-}
-
-@font-face {
-  font-family: 'Inter UI';
-  src: url('/fonts/Inter-UI-Medium.woff2') format('woff2'),
-       url('/fonts/Inter-UI-Medium.woff') format('woff');
-  font-display: optional;
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: 'Inter UI';
-  src: url('/fonts/Inter-UI-Bold.woff2') format('woff2'),
-       url('/fonts/Inter-UI-Bold.woff') format('woff');
-  font-display: optional;
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: 'Inter UI';
-  src: url('/fonts/Inter-UI-Black.woff2') format('woff2'),
-       url('/fonts/Inter-UI-Black.woff') format('woff');
-  font-display: optional;
-  font-weight: 900;
+*, *:before, *:after {
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Inter UI', sans-serif;
   font-family: 'Times New Roman', serif;
-  font-weight: 600;
-  font-size: 17px;
-  color: #111;
-  margin: 0;
-  padding: 10px 0;
-}
-
-p {
   line-height: 1.5;
-}
-
-@media (min-width: 600px) {
-
-  body {
-    padding: 40px 0;
-  }
+  font-size: 18px;
+  color: #000;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
