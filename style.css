@@ -138,11 +138,11 @@ textarea {
   height: 200px;
 }
 
-label[for="image-input"] {
+label[for="image-picker"] {
   position: relative;
 }
 
-#image-input {
+#image-picker {
   position: absolute;
   left: 0;
   top: 0;
