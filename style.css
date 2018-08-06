@@ -40,7 +40,15 @@ body {
   font-size: 16px;
   color: #000;
   margin: 0;
-  padding: 0;
+  padding: 40px 0;
+}
+
+::selection {
+  background: var(--highlight-yellow);
+}
+
+::-moz-selection {
+  background: var(--highlight-yellow);
 }
 
 .container {
@@ -118,18 +126,54 @@ button {
   background: var(--jay-z-blue);
 }
 
-.group {
-  margin-bottom: 20px;
+.step {
+  position: relative;
+}
+
+.step-count {
+  position: absolute;
+  display: block;
+  top: 15px;
+  left: -30px;
+  width: 30px;
+  font-weight: 900;
+}
+
+.feedback {
+  height: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 7px;
+}
+
+.feedback.error {
+  color: var(--error-red);
 }
 
 form .group.actions {
   justify-content: space-between;
 }
 
+.input-group:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+input[type="text"] {
+  height: 50px;
+  border: 2px solid;
+  padding: 0 15px;
+  font-size: 14px;
+  flex: 1;
+}
+
+input[type="text"].error {
+  border: 2px dashed;
+}
+
 input:focus,
 textarea:focus {
   outline: none;
-  border: 1px solid var(--jay-z-blue);
+  border: 2px solid var(--jay-z-blue);
 }
 
 textarea {
@@ -152,28 +196,50 @@ label[for="image-picker"] {
   cursor: pointer;
 }
 
-// utils
+/* UTILS */
+
+.flex,
+.inline-flex {
+  flex-wrap: nowrap;
+  align-items: center;
+}
 
 .flex {
   display: flex;
-  align-items: center;
 }
 
 .inline-flex {
   display: inline-flex;
-  align-items: center;
 }
 
 .hidden {
   visibility: hidden;
 }
 
-.spinner:after {
+.spinner:after,
+.loading:after {
   display: block;
-  content: '⋯';
-  animation: .75s infinite spinner;
   height: 100%;
+}
+
+.spinner:after {
+  animation: .75s infinite spinner;
+  content: '⋯';
   width: 25px;
+  margin-left: 10px;
+}
+
+.loading:after {
+  animation: 1.25s infinite loading;
+  content: '.';
+  margin-left: 3px;
+  letter-spacing: 1px;
+}
+
+@keyframes loading {
+  0% { content: '.'; }
+  33% { content: '..'; }
+  66% { content: '...'; }
 }
 
 @keyframes spinner {

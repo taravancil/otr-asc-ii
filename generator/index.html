@@ -7,32 +7,48 @@
   </head>
 
   <body>
-    <style>body { --jay-z-blue: blue; }</style>
+    <style>
+      body {
+        --jay-z-blue: blue;
+        --error-red: red;
+        --highlight-yellow: yellow;
+      }
+    </style>
 
   	<div class="container">
       <form>
-        <p class="input-group">
-          <label class="btn" for="image-picker">
-            Choose image
-            <input type="file" accept="image/*" id="image-picker" />
-          </label>
-        </p>
+        <div class="input-group step">
+          <div class="flex">
+            <div class="step-count">1.</div>
 
-        <img id="preview-image"/>
+            <input placeholder="Enter an image URL (.png, .jpg, .jpeg)" name="image-url" type="text"/>
 
-        <p class="input-group active">
-          <label for="eil">
-            Select a song from EVERYTHING IS LOVE
-            <input name="lyric-type" id="eil" type="radio" checked />
-          </label>
+            <label class="btn" for="image-picker">
+              Upload image
+              <input type="file" accept="image/*" id="image-picker" />
+            </label>
+          </div>
 
-          <select id="song-picker"></select>
+          <div id="image-picker-feedback" class="feedback flex"></div>
 
-          <label for="custom">
-            Enter custom text
-            <input name="lyric-type" id="custom" type="radio" checked />
-          </label>
-        </p>
+          <img id="preview-image"/>
+        </div>
+
+        <div class="input-group step">
+          <div class="flex">
+            <label for="eil">
+              2. Select a song from EVERYTHING IS LOVE
+              <input name="lyric-type" id="eil" type="radio" checked />
+            </label>
+
+            <select id="song-picker"></select>
+
+            <label for="custom">
+              Enter custom text
+              <input name="lyric-type" id="custom" type="radio" checked />
+            </label>
+          </div>
+        </div>
       </form>
 
       <div id="lyrics"></div>
