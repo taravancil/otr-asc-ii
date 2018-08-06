@@ -2,10 +2,42 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Inter UI';
+  src: url('/fonts/Inter-UI-Regular.woff2') format('woff2'),
+       url('/fonts/Inter-UI-Regular.woff') format('woff');
+  font-display: optional;
+  font-weight: regular;
+}
+
+@font-face {
+  font-family: 'Inter UI';
+  src: url('/fonts/Inter-UI-Medium.woff2') format('woff2'),
+       url('/fonts/Inter-UI-Medium.woff') format('woff');
+  font-display: optional;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Inter UI';
+  src: url('/fonts/Inter-UI-Bold.woff2') format('woff2'),
+       url('/fonts/Inter-UI-Bold.woff') format('woff');
+  font-display: optional;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Inter UI';
+  src: url('/fonts/Inter-UI-Black.woff2') format('woff2'),
+       url('/fonts/Inter-UI-Black.woff') format('woff');
+  font-display: optional;
+  font-weight: 900;
+}
+
 body {
-  font-family: 'Times New Roman', serif;
+  font-family: 'Inter UI', sans-serif;
   line-height: 1.5;
-  font-size: 18px;
+  font-size: 16px;
   color: #000;
   margin: 0;
   padding: 0;
@@ -28,6 +60,13 @@ body {
 #ascii .column {
   display: inline-block;
   line-height: .725;
+}
+
+#lyrics {
+  font-family: 'Times New Roman', serif;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: light;
 }
 
 h1 {
@@ -62,15 +101,15 @@ a:hover {
 button {
   display: inline-flex;
   align-items: center;
-  height: 28px;
+  height: 38px;
+  line-height: 38px;
   margin-right: 5px;
   padding: 0 10px;
   outline: none;
-  line-height: 1;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  border: 1px solid;
+  border: 2px solid;
   text-decoration: none;
 }
 
