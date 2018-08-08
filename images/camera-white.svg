@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="128px" height="106px" viewBox="0 0 128 106" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>camera-white</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="camera-white" fill="#FFFFFF">
+            <path d="M0,15 L128,15 L128,106 L0,106 L0,15 Z M64,91 C80.5685425,91 94,77.5685425 94,61 C94,44.4314575 80.5685425,31 64,31 C47.4314575,31 34,44.4314575 34,61 C34,77.5685425 47.4314575,91 64,91 Z" id="Combined-Shape"></path>
+            <rect id="Rectangle-Copy" x="30" y="0" width="68" height="30"></rect>
+            <circle id="Oval-Copy" cx="64" cy="61" r="15"></circle>
+        </g>
+    </g>
+</svg>
