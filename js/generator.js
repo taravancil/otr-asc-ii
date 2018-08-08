@@ -80,6 +80,7 @@ import {ERRORS} from '/js/const.js'
     var song = songs[i]
 
     DOM.lyrics.innerText = song.lyrics
+    DOM.lyrics.scrollTop = 0
     currentLyrics = song.rawLyrics
   }
 
