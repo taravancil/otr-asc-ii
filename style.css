@@ -105,20 +105,27 @@ a:hover {
 button {
   display: inline-flex;
   align-items: center;
-  height: 38px;
-  line-height: 38px;
-  margin-right: 5px;
-  padding: 0 10px;
-  outline: none;
+  height: 50px;
+  line-height: 50px;
+  margin-left: 10px;
+  padding: 0 15px;
+  background: #000;
+  color: #fff;
   font-size: 14px;
   font-weight: 600;
-  cursor: pointer;
-  border: 2px solid;
   text-decoration: none;
+  letter-spacing: .3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn .icon {
+  height: 13px;
+  margin-right: 7px;
 }
 
 .btn:hover {
-  color: var(--jay-z-blue);
+  background: var(--jay-z-blue);
 }
 
 .btn.primary {
