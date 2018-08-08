@@ -142,15 +142,15 @@ button {
 
 .step {
   position: relative;
+  display: block;
 }
 
-.step-count {
-  position: absolute;
-  display: block;
-  top: 15px;
-  left: -30px;
-  width: 30px;
-  font-weight: 900;
+.step:not(:first-of-type) {
+  margin-top: 60px;
+}
+
+.step h2 {
+  /* margin-left: -30px; */
 }
 
 .feedback {
