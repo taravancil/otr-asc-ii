@@ -47,18 +47,21 @@
         <div class="input-group step">
           <h2>2. Choose lyrics</h2>
 
-          <div class="flex">
-            <label for="eil">
+          <div class="flex lyric-type">
+            <label for="eil" class="inline-flex">
               <input name="lyric-type" id="eil" type="radio" checked />
+              Select a song from EVERYTHING IS LOVE 
             </label>
 
-            <select id="song-picker"></select>
-
-            <label for="custom">
-              Enter custom text
+            <label for="custom" class="inline-flex">
               <input name="lyric-type" id="custom" type="radio" />
+              Enter custom text
             </label>
           </div>
+
+          <label for="song-picker" class="select-wrapper">
+            <select name="song-picker" class="song-picker"></select>
+          </label>
         </div>
       </form>
 

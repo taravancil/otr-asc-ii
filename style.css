@@ -40,7 +40,7 @@ body {
   font-size: 16px;
   color: #000;
   margin: 0;
-  padding: 40px 0;
+  padding: 60px 0;
 }
 
 ::selection {
@@ -59,7 +59,7 @@ figure {
   width: 100%;
   max-width: 650px;
   margin: auto;
-  padding: 10px;
+  padding: 0 10px;
 }
 
 #ascii {
@@ -74,14 +74,67 @@ figure {
   line-height: .725;
 }
 
+select {
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 0;
+  font-size: inherit;
+  font-weight: 500;
+}
+
+.select-wrapper {
+  position: relative;
+  display: block;
+  padding-left: 55px;
+  /* height: 50px; */
+}
+
+.select-wrapper:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  content: '▾';
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  line-height: 50px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+}
+
+.select-wrapper select {
+  position: relative;
+  margin-left: -55px;
+  padding-left: 60px;
+  z-index: 1;
+  background: transparent;;
+  width: calc(100% + 85px);
+  border: 2px solid;
+}
+
+select.song-picker {
+  border-bottom: 0;
+}
+
+.lyric-type {
+  margin-bottom: 10px;
+}
+
 .lyrics-preview {
   height: 250px;
-  margin-top: 20px;
   padding: 10px 15px;
   border: 2px solid;
   overflow-y: auto;
   line-height: 2;
   font-style: italic;
+}
+
+.lyrics-preview[contenteditable] {
+  height: 300px;
 }
 
 h1 {
@@ -150,6 +203,7 @@ button {
 }
 
 .step h2 {
+  margin-top: 0;
   /* margin-left: -30px; */
 }
 
@@ -172,9 +226,18 @@ form .group.actions {
   margin-bottom: 40px;
 }
 
+label:not(.btn) {
+  margin-right: 30px;
+  font-weight: 500;
+}
+
+select,
 input[type="text"] {
   height: 50px;
   border: 2px solid;
+}
+
+input[type="text"] {
   padding: 0 15px;
   font-size: 14px;
   flex: 1;
@@ -184,11 +247,29 @@ input[type="text"].error {
   border: 2px dashed;
 }
 
+input[type="radio"] {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  margin-right: 7px;
+  border-radius: 50%;
+  border: 2px solid;
+}
+
+input[type="radio"]:checked {
+  background: #fff;
+  border: 4.5px solid var(--jay-z-blue);
+}
+
 input:focus,
 *[contenteditable]:focus,
 textarea:focus {
   outline: none;
-  border: 2px solid var(--jay-z-blue);
+  border-color: var(--jay-z-blue);
+}
+
+select:focus {
+  outline: none;
 }
 
 textarea {
@@ -264,7 +345,7 @@ label[for="image-picker"] {
 }
 
 .hidden {
-  visibility: hidden;
+  display: none;
 }
 
 .spinner:after,

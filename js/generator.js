@@ -14,7 +14,8 @@ import {ERRORS} from '/js/const.js'
     imageDragContainer: $('#image-drag-container'),
     previewImage: $('#preview-image'),
     previewImageCaption: $('#preview-image-caption'),
-    songPicker: $('#song-picker'),
+    songPicker: $('.song-picker'),
+    songPickerWrapper: $('label[for="song-picker"]'),
     lyricType: $('input[name="lyric-type"]'),
     lyrics: $('.lyrics-preview')
   }
@@ -92,9 +93,11 @@ import {ERRORS} from '/js/const.js'
     var type = e.target.id
 
     if (type === 'eil') {
-     DOM.lyrics.setAttribute('contenteditable', false)
-     currentLyrics = songs[Number(DOM.songPicker.value)].lyrics
+      DOM.songPickerWrapper.classList.remove('hidden')
+      DOM.lyrics.removeAttribute('contenteditable')
+      currentLyrics = songs[Number(DOM.songPicker.value)].lyrics
     } else if (type === 'custom') {
+      DOM.songPickerWrapper.classList.add('hidden')
       DOM.lyrics.setAttribute('contenteditable', true)
       DOM.lyrics.focus()
       currentLyrics = currentCustomLyrics
