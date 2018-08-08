@@ -51,6 +51,10 @@ body {
   background: var(--highlight-yellow);
 }
 
+figure {
+  margin: 0;
+}
+
 .container {
   width: 100%;
   max-width: 750px;
@@ -190,6 +194,33 @@ label[for="image-picker"] {
   position: relative;
 }
 
+#image-drag-container {
+  border: 2px dashed;
+  padding: 15px;
+  height: 250px;
+}
+
+#image-drag-container.dragging {
+  background: var(--highlight-yellow);
+}
+
+#image-drag-container .label {
+  position: absolute;
+  content: 'Drag an image';
+  left: 50%;
+  top: 60%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#image-drag-container .label .icon {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+
 #image-picker {
   position: absolute;
   left: 0;
@@ -198,6 +229,15 @@ label[for="image-picker"] {
   height: 100%;
   opacity: 0;
   cursor: pointer;
+}
+
+#preview-image {
+  max-width: 300px;
+  margin-bottom: 10px;
+}
+
+#preview-image-caption {
+  font-size: 12.5px;
 }
 
 /* UTILS */

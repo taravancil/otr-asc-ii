@@ -11,7 +11,7 @@ import {ERRORS} from '/js/const.js'
     imageUrlInput: $('input[name="image-url"]'),
     imagePicker: $('#image-picker'),
     imagePickerFeedback: $('#image-picker-feedback'),
-    songPicker: $('#song-picker'),
+    imageDragContainer: $('#image-drag-container'),
     previewImage: $('#preview-image'),
     previewImageCaption: $('#preview-image-caption'),
     songPicker: $('#song-picker'),
@@ -52,34 +52,97 @@ import {ERRORS} from '/js/const.js'
     }
   }
 
+  function renderPreviewImage (opts) {
+    render(DOM.previewImageCaption, opts.filename)
+    if (opts.blob) {
+      DOM.previewImage.src = URL.createObjectURL(opts.blob)
+    } else if (opts.href) {
+      DOM.previewImage.src = opts.href
+    }
+  }
+
   // events
   DOM.songPicker.addEventListener('change', onChangeSong)
+  DOM.lyrics.addEventListener('input', onInputLyrics)
+  DOM.lyricType.forEach(el => el.addEventListener('change', onChangeLyricType))
   DOM.imagePicker.addEventListener('change', onUploadImage)
   DOM.imageUrlInput.addEventListener('input', onChangeImageUrl)
+  DOM.imageDragContainer.addEventListener('dragenter', onDragEnterImageDragContainer)
+  DOM.imageDragContainer.addEventListener('dragend', onStopDragging)
+  DOM.imageDragContainer.addEventListener('dragleave', onStopDragging)
+  DOM.imageDragContainer.addEventListener('dragover', onDragOverImageDragContainer)
+  DOM.imageDragContainer.addEventListener('drop', onDropImageDragContainer)
+
 
   function onChangeSong (e) {
     var i = Number(e.target.value)
     var song = songs[i]
 
     DOM.lyrics.innerText = song.lyrics
+    currentLyrics = song.rawLyrics
+  }
+
+  function onInputLyrics (e) {
+    currentCustomLyrics = e.target.innerText
+  }
+
+  function onChangeLyricType (e) {
+    var type = e.target.id
+
+    if (type === 'eil') {
+     DOM.lyrics.setAttribute('contenteditable', false)
+     currentLyrics = songs[Number(DOM.songPicker.value)].lyrics
+    } else if (type === 'custom') {
+      DOM.lyrics.setAttribute('contenteditable', true)
+      DOM.lyrics.focus()
+      currentLyrics = currentCustomLyrics
+    } else {
+      currentLyrics =  ''
+    }
+    DOM.lyrics.innerText = currentLyrics
+  }
+
+  function onDragEnterImageDragContainer (e) {
+    DOM.imageDragContainer.classList.add('dragging')
+  }
+
+  function onStopDragging () {
+    DOM.imageDragContainer.classList.remove('dragging')
+  }
+
+  function onDragOverImageDragContainer (e) {
+    e.preventDefault()
+  }
+
+  function onDropImageDragContainer (e) {
+    var file
+    if (e.dataTransfer.items) {
+      var file = e.dataTransfer.items[0]
+      if (file.kind === 'file' && file.type.startsWith('image/')) {
+        file = files[i].getAsFile()
+        console.log(file.name)
+      }
+    } else {
+      file = e.dataTransfer.files[0]
+    }
+
+    DOM.imageDragContainer.classList.remove('dragging')
   }
 
   function onUploadImage () {
     var file = DOM.imagePicker.files[0]
     var href = URL.createObjectURL(file)
-    DOM.previewImage.src = href
+
+    DOM.imageUrlInput.value = ''
+    renderPreviewImage({href, filename: file.path})
   }
 
   async function onChangeImageUrl (e) {
     const reset = function () {
       removeClass([DOM.imagePickerFeedback, DOM.imageUrlInput], 'error')
       render(DOM.imagePickerFeedback, '')
+      render(DOM.previewImageCaption, '')
       DOM.previewImage.src = ''
-    }
-
-    const renderPreviewImage = function (blob) {
-      reset()
-      DOM.previewImage.src = URL.createObjectURL(blob)
     }
 
     const setErrors = function (msg) {
@@ -112,7 +175,9 @@ import {ERRORS} from '/js/const.js'
         var archive = new DatArchive(rawUrl)
         var buf = await archive.readFile(urlp.pathname, 'binary')
         var blob = new Blob([buf])
-        renderPreviewImage(blob)
+
+        reset()
+        renderPreviewImage({blob, filename: url})
       } catch (err) {
         var errorMessage = ''
 
@@ -135,7 +200,8 @@ import {ERRORS} from '/js/const.js'
         var blob = await res.blob()
 
         if (blob.type.startsWith('image')) {
-          renderPreviewImage(blob)
+          reset()
+          renderPreviewImage({blob, filename: url})
         } else {
           setErrors(ERRORS.notFound)
         }
