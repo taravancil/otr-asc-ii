@@ -1,6 +1,8 @@
 {
   "title": "OTR (ASC)II",
   "experimental": {
-    "apis": ["globalFetch"]
+    "apis": [
+      "globalFetch"
+    ]
   }
 }
