@@ -24,6 +24,7 @@ import {ERRORS} from '/js/const.js'
   async function setup () {
     a = new DatArchive(window.location)
     var songPaths = await a.readdir('/songs')
+    songPaths = songPaths.sort()
 
     for (var i = 0; i < songPaths.length; i++) {
       var song = JSON.parse(await a.readFile(`/songs/${songPaths[i]}`))
