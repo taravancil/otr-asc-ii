@@ -40,7 +40,46 @@ body {
   font-size: 16px;
   color: #000;
   margin: 0;
-  padding: 60px 0;
+  padding: 85px 0 20px 0
+}
+
+@media (min-width: 600px) {
+  body {
+    padding: 110px 0 60px 0;
+  }
+}
+
+header {
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  width: 100%;
+  padding: 10px;
+  background: #fff;
+  background: #000;
+}
+
+header .album-cover {
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+}
+
+header .tidal-logo {
+  width: auto;
+  height: 13px;
+  margin-left: 5px;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header a:hover {
+  color: #fff;
+  text-decoration: underline;
 }
 
 ::selection {
@@ -346,6 +385,22 @@ label[for="image-picker"] {
 
 .hidden {
   display: none;
+}
+
+@media (min-width: 600px) {
+  .mobile-text {
+    display: none;
+  }
+}
+
+.desktop-text {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .desktop-text {
+    display: initial;
+  }
 }
 
 .spinner:after,
