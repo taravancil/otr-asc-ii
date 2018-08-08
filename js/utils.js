@@ -1,5 +1,7 @@
 export function $ (querySelector) {
-  return document.querySelector(querySelector)
+  var els = document.querySelectorAll(querySelector)
+
+  return els.length > 1 ? els : els[0]
 }
 
 export function render (targetEl, html) {
