@@ -4,7 +4,8 @@ import {ERRORS} from '/js/const.js'
 (function () {
   var a
   var songs = []
-  var activeLyrics = ''
+  var currentLyrics = ''
+  var currentCustomLyrics = ''
 
   var DOM = {
     imageUrlInput: $('input[name="image-url"]'),
@@ -12,7 +13,10 @@ import {ERRORS} from '/js/const.js'
     imagePickerFeedback: $('#image-picker-feedback'),
     songPicker: $('#song-picker'),
     previewImage: $('#preview-image'),
-    lyrics: $('#lyrics')
+    previewImageCaption: $('#preview-image-caption'),
+    songPicker: $('#song-picker'),
+    lyricType: $('input[name="lyric-type"]'),
+    lyrics: $('.lyrics-preview')
   }
 
   setup()
@@ -30,8 +34,9 @@ import {ERRORS} from '/js/const.js'
       songEl.value = song.order
       DOM.songPicker.appendChild(songEl)
     }
-    activeLyrics = songs[0].lyrics
-    DOM.lyrics.innerText = activeLyrics
+
+    currentLyrics = songs[0].lyrics
+    DOM.lyrics.innerText = currentLyrics
   }
 
   // utils

@@ -70,11 +70,14 @@ body {
   line-height: .725;
 }
 
-#lyrics {
-  font-family: 'Times New Roman', serif;
-  font-size: 22px;
+.lyrics-preview {
+  height: 250px;
+  margin-top: 20px;
+  padding: 10px 15px;
+  border: 2px solid;
+  overflow-y: auto;
+  line-height: 2;
   font-style: italic;
-  font-weight: light;
 }
 
 h1 {
@@ -171,6 +174,7 @@ input[type="text"].error {
 }
 
 input:focus,
+*[contenteditable]:focus,
 textarea:focus {
   outline: none;
   border: 2px solid var(--jay-z-blue);
@@ -247,4 +251,19 @@ label[for="image-picker"] {
   25% { content: '⋱'; }
   50% { content: '⋮'; }
   75% { content: '⋰'; }
+}
+
+::-webkit-scrollbar {
+  width: 10px;  /* for vertical scrollbars */
+  height: 10px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  display: block;
+  background: #000;
+  margin: 5px;
 }
