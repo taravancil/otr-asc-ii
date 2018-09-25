@@ -88,6 +88,11 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
     return str
   }
 
+  function stripLyrics (lyrics) {
+    // strip all non-number or letter characters
+    return lyrics.replace(/[^a-zA-Z0-9]/g, '');
+  }
+
   // rendering
   function reset () {
     removeClass([DOM.imagePickerFeedback, DOM.imageUrlInput], 'error')
@@ -150,11 +155,6 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
 
         }
       }
-    }
-
-    function stripLyrics (lyrics) {
-      // strip all non-number or letter characters
-      return lyrics.replace(/[^a-zA-Z0-9]/g, '');
     }
 
     DOM.ascii.innerHTML = html
