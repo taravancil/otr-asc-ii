@@ -355,14 +355,6 @@ label[for="image-picker"] {
   position: relative;
 }
 
-label.btn input:focus {
-  border: 2px dotted var(--highlight-yellow);
-}
-
-label.btn:focus {
-  outline: dotted var(--highlight-yellow);
-}
-
 #image-drag-container {
   border: 2px dashed;
   padding: 15px;
