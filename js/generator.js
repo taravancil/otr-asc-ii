@@ -298,7 +298,8 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
       } else if (data.kind === 'file' && data.type.match('^image/')) {
         var file = data.getAsFile()
         var href = URL.createObjectURL(file)
-        renderPreviewImage({href, filename: file.path})
+        var filename = file.path || file.name || ''
+        renderPreviewImage({href, filename})
       } else {
         addClass([DOM.imagePickerFeedback], 'error')
         render(DOM.imagePickerFeedback, ERRORS.invalidFileType)
