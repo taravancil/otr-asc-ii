@@ -1,0 +1,22 @@
+#ascii {
+  flex-wrap: nowrap;
+  max-height: calc(100vh - 100px);
+  margin: 10px 0;
+  overflow: auto;
+  background: #fff;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+}
+
+#ascii .column {
+  display: inline-block;
+  line-height: 5px;
+}
+
+#ascii .char {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  line-height: 1;
+  font-size: 9px;
+}

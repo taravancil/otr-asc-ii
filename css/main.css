@@ -4,48 +4,45 @@
 
 @font-face {
   font-family: 'Inter UI';
-  src: url('/fonts/Inter-UI-Regular.woff2') format('woff2'),
-       url('/fonts/Inter-UI-Regular.woff') format('woff');
-  font-display: optional;
-  font-weight: regular;
+  src:
+    url('dat://fonts.taravancil.com/inter-ui/Inter-UI-Regular.woff') format('woff'),
+    url('https://fonts.taravancil.com/inter-ui/Inter-UI-Regular.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Inter UI';
-  src: url('/fonts/Inter-UI-Medium.woff2') format('woff2'),
-       url('/fonts/Inter-UI-Medium.woff') format('woff');
-  font-display: optional;
+  src:
+    url('dat://fonts.taravancil.com/inter-ui/Inter-UI-Medium.woff') format('woff'),
+    url('https://fonts.taravancil.com/inter-ui/Inter-UI-Medium.woff') format('woff');
   font-weight: 500;
 }
 
 @font-face {
   font-family: 'Inter UI';
-  src: url('/fonts/Inter-UI-Bold.woff2') format('woff2'),
-       url('/fonts/Inter-UI-Bold.woff') format('woff');
-  font-display: optional;
+  src:
+    url('dat://fonts.taravancil.com/inter-ui/Inter-UI-Bold.woff') format('woff'),
+    url('dat://fonts.taravancil.com/inter-ui/Inter-UI-Bold.woff') format('woff');
   font-weight: 700;
 }
 
-@font-face {
-  font-family: 'Inter UI';
-  src: url('/fonts/Inter-UI-Black.woff2') format('woff2'),
-       url('/fonts/Inter-UI-Black.woff') format('woff');
-  font-display: optional;
-  font-weight: 900;
+body {
+  position: relative;
+  margin: 0;
+  padding: 85px 0 20px 0;
+  font-family: 'Inter UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+  overflow-x: hidden;
 }
 
-body {
-  font-family: 'Inter UI', sans-serif;
-  line-height: 1.5;
-  font-size: 16px;
-  color: #000;
-  margin: 0;
-  padding: 85px 0 20px 0
+body.noscroll {
+  overflow: hidden;
 }
 
 @media (min-width: 600px) {
   body {
-    padding: 110px 0 60px 0;
+    padding: 100px 0;
   }
 }
 
@@ -101,20 +98,36 @@ figure {
   padding: 0 10px;
 }
 
-#ascii {
-  font-size: 12px;
-  font-family: monospace;
-  font-weight: bold;
-  flex-wrap: nowrap;
+.container.wide {
+  max-width: 1000px;
 }
 
-#ascii .column {
-  display: inline-block;
-  line-height: .725;
+.ascii-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  background: #fff;
+}
+
+.ascii-container .header {
+  padding: 10px;
+}
+
+.ascii-container .header .btn {
+  margin: 0;
+}
+
+.ascii-container .header .close-ascii-btn {
+  margin-right: auto;
 }
 
 select {
   -webkit-appearance: none;
+  -moz-appearance: none;
   width: 100%;
   padding: 10px;
   border-radius: 0;
@@ -126,7 +139,6 @@ select {
   position: relative;
   display: block;
   padding-left: 55px;
-  /* height: 50px; */
 }
 
 .select-wrapper:before {
@@ -164,16 +176,24 @@ select.song-picker {
 }
 
 .lyrics-preview {
-  height: 250px;
+  height: 200px;
   padding: 10px 15px;
   border: 2px solid;
   overflow-y: auto;
   line-height: 2;
+  font-size: 13px;
   font-style: italic;
 }
 
 .lyrics-preview[contenteditable] {
-  height: 300px;
+  height: 250px;
+}
+
+.tidal-link a {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: 500;
 }
 
 h1 {
@@ -181,7 +201,6 @@ h1 {
   margin-bottom: 20px;
   text-transform: uppercase;
   font-size: 30px;
-  font-weight: 900;
   letter-spacing: 1px;
 }
 
@@ -191,6 +210,10 @@ a {
 
 a:hover {
   color: var(--jay-z-blue);
+}
+
+a:focus {
+  outline: dotted var(--highlight-yellow);
 }
 
 .btn,
@@ -206,13 +229,19 @@ button {
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
+  text-align: center;
   letter-spacing: .3px;
   outline: none;
+  border: 0;
   cursor: pointer;
 }
 
 .btn .icon {
   height: 13px;
+}
+
+.btn .icon:not(:last-child) {
+  /* TODO this is not correct for the camera button */
   margin-right: 7px;
 }
 
@@ -238,7 +267,7 @@ button {
 }
 
 .step:not(:first-of-type) {
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .step h2 {
@@ -247,10 +276,13 @@ button {
 }
 
 .feedback {
-  height: 20px;
-  font-size: 14px;
-  font-weight: 500;
-  margin-top: 7px;
+  position: absolute;
+  bottom: 10px;
+  max-width: calc(100% - 35px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .feedback.error {
@@ -273,6 +305,7 @@ label:not(.btn) {
 select,
 input[type="text"] {
   height: 50px;
+  width: 100%;
   border: 2px solid;
 }
 
@@ -288,16 +321,17 @@ input[type="text"].error {
 
 input[type="radio"] {
   -webkit-appearance: none;
+  -moz-appearance: none;
   width: 15px;
   height: 15px;
-  margin-right: 7px;
+  margin: 0 5px 0 0;
   border-radius: 50%;
   border: 2px solid;
 }
 
 input[type="radio"]:checked {
   background: #fff;
-  border: 4.5px solid var(--jay-z-blue);
+  border: 4.5px solid #000;
 }
 
 input:focus,
@@ -319,6 +353,14 @@ textarea {
 
 label[for="image-picker"] {
   position: relative;
+}
+
+label.btn input:focus {
+  border: 2px dotted var(--highlight-yellow);
+}
+
+label.btn:focus {
+  outline: dotted var(--highlight-yellow);
 }
 
 #image-drag-container {
@@ -358,9 +400,29 @@ label[for="image-picker"] {
   cursor: pointer;
 }
 
-#preview-image {
-  max-width: 300px;
-  margin-bottom: 10px;
+.form-submit-footer {
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 20px);
+  max-width: 630px;
+  padding: 5px 0 10px 0;
+  background: #fff;
+}
+
+.generate-btn {
+  flex: 1;
+  justify-content: center;
+}
+
+.preview-image {
+  height: 50px;
+  width: auto;
+}
+
+.step.image-upload .preview-image {
+  position: absolute;
+  right: 0;
+  top: -5px;
 }
 
 #preview-image-caption {
@@ -388,6 +450,7 @@ label[for="image-picker"] {
 }
 
 @media (min-width: 600px) {
+
   .mobile-text {
     display: none;
   }
