@@ -7,6 +7,7 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
   var currentSong = {}
   var currentLyrics = ''
   var currentCustomLyrics = ''
+  var readFile = readFileFetch
 
   var DOM = {
     imageUrlInput: $('input[name="image-url"]'),
@@ -31,15 +32,15 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
   setup()
 
   async function setup () {
-    var readSong = readFileFetch
+    var readFile = readFileFetch
 
     if (window.DatArchive) {
       a = new DatArchive(window.location)
-      readSong = readFileDat
+      readFile = readFileDat
     }
 
     for (var i = 0; i < SONG_PATHS.length; i++) {
-      var song = JSON.parse(await readSong(`/songs/${SONG_PATHS[i]}`))
+      var song = JSON.parse(await readFile(`/songs/${SONG_PATHS[i]}`))
       songs.push(song)
 
       var songEl = document.createElement('option')
@@ -56,7 +57,7 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
 
   // utils
   async function readFileDat (path) {
-    const data = await a.readFile(path)
+    const data = await a.readFile(path, 'utf8')
     return data
   }
 
@@ -346,7 +347,7 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
   }
 
   async function generateAsciiHtml () {
-    var css = await a.readFile('/css/ascii.css', 'utf8')
+    var css = await readFile('/css/ascii.css')
 
     return `
       <html>
