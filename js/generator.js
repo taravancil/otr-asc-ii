@@ -324,6 +324,42 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
       return
     }
 
+    fetchImage(url)
+  }
+
+  async function onClickDownloadHtmlButton () {
+    var parts = DOM.imagePickerFeedback.innerText.split('/')
+    var filename = parts[parts.length - 1].split('.')[0]
+    var html = await generateAsciiHtml()
+
+    DOM.downloadHtmlLink.setAttribute(
+      'href',
+      'data:text/plain;charset=utf-8,' + encodeURIComponent(html)
+    )
+
+    DOM.downloadHtmlLink.setAttribute('download', `${filename}.html`)
+    // DOM.downloadHtmlLink.setAttribute('target', '_blank')
+    DOM.downloadHtmlLink.click()
+  }
+
+  async function generateAsciiHtml () {
+    var css = await a.readFile('/css/ascii.css', 'utf8')
+
+    return `
+      <html>
+        <style>${css}</style>
+        <div id="ascii">${DOM.ascii.innerHTML}</div>
+      </html>
+    `
+  }
+
+  async function fetchImage (url) {
+    const setErrors = function (msg) {
+      addClass([DOM.imagePickerFeedback, DOM.imageUrlInput], 'error')
+      render(DOM.imagePickerFeedback, msg)
+    }
+
+    reset()
     try {
       var urlp = new URL(url)
     } catch (err) {
@@ -331,8 +367,8 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
       return
     }
 
-    // add a spinner to the input
-    render(DOM.imagePickerFeedback, 'Fetching image <span class="loading"></span>')
+    // add a loading indicator to the input
+    DOM.imagePickerFeedback.innerText = 'Fetching image...'
 
     // if it's a dat URL, use DatArchive.readFile() to fetch the image
     if (urlp.protocol === 'dat:') {
