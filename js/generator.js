@@ -242,7 +242,8 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
     DOM.lyrics.innerText = song.lyrics
     render(DOM.tidalLink, renderTidalLink(song))
     DOM.lyrics.scrollTop = 0
-    currentLyrics = song.rawLyrics
+    currentSong = song
+    currentLyrics = song.lyrics
   }
 
   function onInputLyrics (e) {
