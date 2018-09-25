@@ -12,8 +12,8 @@ import {ERRORS} from '/js/const.js'
     imagePicker: $('#image-picker'),
     imagePickerFeedback: $('#image-picker-feedback'),
     imageDragContainer: $('#image-drag-container'),
-    previewImage: $('#preview-image'),
-    previewImageCaption: $('#preview-image-caption'),
+    previewImage: $('.preview-image'),
+    submitFooter: $('.form-submit-footer'),
     songPicker: $('.song-picker'),
     songPickerWrapper: $('label[for="song-picker"]'),
     lyricType: $('input[name="lyric-type"]'),
@@ -63,12 +63,39 @@ import {ERRORS} from '/js/const.js'
     }
   }
 
+  function arrayBufferToStr (buf) {
+    var uintArray = new Uint16Array(buf)
+    var str = ''
+
+    uintArray.forEach(function (byte) {
+      str += String.fromCharCode(byte)
+    })
+
+    return str
+  }
+
+  // rendering
+  function reset () {
+    removeClass([DOM.imagePickerFeedback, DOM.imageUrlInput], 'error')
+    DOM.previewImage.src = ''
+  }
+
+  function renderTidalLink (song) {
+    return `
+      <a href=${song.tidalLink} target="_blank">▶︎ Listen to ${song.title} on TIDAL</a>
+    `
+  }
+
   function renderPreviewImage (opts) {
-    render(DOM.previewImageCaption, opts.filename)
+    DOM.imagePickerFeedback.innerText = opts.filename
+    removeClass([DOM.imagePickerFeedback], 'error')
+    removeClass([DOM.submitFooter], 'hidden')
+
+    var src = ''
     if (opts.blob) {
-      DOM.previewImage.src = URL.createObjectURL(opts.blob)
+      src = URL.createObjectURL(opts.blob)
     } else if (opts.href) {
-      DOM.previewImage.src = opts.href
+      src = opts.href
     }
 
     DOM.previewImage.forEach(function (img) {
@@ -141,6 +168,7 @@ import {ERRORS} from '/js/const.js'
     var song = songs[i]
 
     DOM.lyrics.innerText = song.lyrics
+    render(DOM.tidalLink, renderTidalLink(song))
     DOM.lyrics.scrollTop = 0
     currentLyrics = song.rawLyrics
   }
@@ -152,14 +180,17 @@ import {ERRORS} from '/js/const.js'
   function onChangeLyricType (e) {
     var type = e.target.id
 
+    var currentSong = songs[Number(DOM.songPicker.value)]
     if (type === 'eil') {
       DOM.songPickerWrapper.classList.remove('hidden')
       DOM.lyrics.removeAttribute('contenteditable')
-      currentLyrics = songs[Number(DOM.songPicker.value)].lyrics
+      render(DOM.tidalLink, renderTidalLink(currentSong))
+      currentLyrics = currentSong.lyrics
     } else if (type === 'custom') {
       DOM.songPickerWrapper.classList.add('hidden')
       DOM.lyrics.setAttribute('contenteditable', true)
       DOM.lyrics.focus()
+      render(DOM.tidalLink, '')
       currentLyrics = currentCustomLyrics
     } else {
       currentLyrics =  ''

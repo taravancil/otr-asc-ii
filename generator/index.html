@@ -56,8 +56,12 @@
 
   	<div class="container">
       <form>
-        <div class="input-group step">
-          <h2>1. Choose an image</h2>
+        <div class="input-group step image-upload">
+          <h2>
+            1. Choose an image
+            <img class="preview-image">
+          </h2>
+
           <div id="image-drag-container">
             <div class="label flex">
               <img class="icon" src="/images/drag-n-drop.svg"/>
@@ -67,19 +71,14 @@
             <div class="flex">
               <input placeholder="Enter an image URL (.png, .jpg, .jpeg)" name="image-url" type="text"/>
 
-              <label class="btn" for="image-picker">
+              <label class="btn" for="image-picker" tabindex="0">
                 <img class="icon" src="/images/camera-white.svg"/>
-                Select image
+                <span class="desktop-text">Select image</span>
                 <input type="file" accept="image/*" id="image-picker" />
               </label>
             </div>
 
             <div id="image-picker-feedback" class="feedback flex"></div>
-
-            <figure>
-              <img id="preview-image"/>
-              <figcaption id="preview-image-caption"></figcaption>
-            </figure>
           </div>
         </div>
 
@@ -89,7 +88,7 @@
           <div class="flex lyric-type">
             <label for="eil" class="inline-flex">
               <input name="lyric-type" id="eil" type="radio" checked />
-              Select a song from EVERYTHING IS LOVE 
+              Select a song from EVERYTHING IS LOVE
             </label>
 
             <label for="custom" class="inline-flex">
