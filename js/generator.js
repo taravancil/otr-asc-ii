@@ -44,8 +44,10 @@ import {ERRORS} from '/js/const.js'
       DOM.songPicker.appendChild(songEl)
     }
 
-    currentLyrics = songs[0].lyrics
-    DOM.lyrics.innerText = currentLyrics
+    currentSong = songs[0]
+    currentLyrics = currentSong.lyrics
+    DOM.lyrics.innerText = currentSong.lyrics
+    render(DOM.tidalLink, renderTidalLink(currentSong))
   }
 
   // utils
