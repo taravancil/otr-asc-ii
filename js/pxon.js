@@ -2,7 +2,7 @@ onmessage = function (message) {
   var imageData = message.data.imageData.data
   var width = message.data.imageData.width
   var height = message.data.imageData.height
-  var pixelSize = 2
+  var pixelSize = message.data.pixelSize
 
   const getPixelColor = function (data, x, y, width) {
     var red = data[(y * width * 4) + (x * 4)]
