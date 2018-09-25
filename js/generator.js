@@ -225,7 +225,7 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
     pxonWorker.onmessage = function (message) {
       var PXON = arrayBufferToStr(message.data)
 
-       DOM.generateButton.innerText = 'Rendering ASCII...'
+      DOM.generateButton.innerText = 'Rendering ASCII...'
       renderAscii(stripLyrics(currentLyrics), PXON)
     }
 
