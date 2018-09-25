@@ -17,7 +17,14 @@ import {ERRORS} from '/js/const.js'
     songPicker: $('.song-picker'),
     songPickerWrapper: $('label[for="song-picker"]'),
     lyricType: $('input[name="lyric-type"]'),
-    lyrics: $('.lyrics-preview')
+    lyrics: $('.lyrics-preview'),
+    tidalLink: $('.tidal-link'),
+    ascii: $('#ascii'),
+    asciiContainer: $('.ascii-container'),
+    closeAsciiButton: $('.close-ascii-btn'),
+    generateButton: $('.generate-btn'),
+    downloadHtmlLink: $('.download-html-link'),
+    downloadHtmlButton: $('.download-html-btn')
   }
 
   setup()
@@ -61,6 +68,57 @@ import {ERRORS} from '/js/const.js'
     } else if (opts.href) {
       DOM.previewImage.src = opts.href
     }
+
+    DOM.previewImage.forEach(function (img) {
+      img.src = src
+    })
+  }
+
+  function renderAscii (lyrics, pxon) {
+    var pixels = JSON.parse(pxon).pxif.pixels
+
+    var html = ''
+    var column = '<div class="column">'
+    var currentColumn = 0
+    var lyricsIdx = 0
+
+    var width = pixels.reduce((acc, pixel) => {
+      return pixel.x > acc ? pixel.x : acc
+    }, 0)
+
+    for (let i = 0; i < pixels.length; i++) {
+      const pixel = pixels[i]
+
+      if (pixel) {
+        lyricsIdx = (pixel.x / 3) + (pixel.y / 3) * (width / 3)
+        var char = lyrics[lyricsIdx % lyrics.length]
+
+        if (pixel.x > currentColumn) {
+          currentColumn = pixel.x
+          column += '</div>'
+          html += column
+          column = '<div class="column">'
+        }
+
+        if (char) {
+          var shadow =  `text-shadow: .4px .4px ${pixel.color};`
+          var color = `color: ${pixel.color};`
+          column += `<span class="char" style="${color} ${shadow}">${char}</span><br>`
+
+        }
+      }
+    }
+
+    function stripLyrics (lyrics) {
+      // strip all non-number or letter characters
+      return lyrics.replace(/[^a-zA-Z0-9]/g, '');
+    }
+
+    DOM.ascii.innerHTML = html
+    removeClass([DOM.asciiContainer], 'hidden')
+    $('html').scrollTop = 0
+    addClass([$('body')], 'noscroll')
+    DOM.generateButton.innerText = 'Generate'
   }
 
   // events
