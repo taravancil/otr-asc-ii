@@ -314,9 +314,10 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
   function onUploadImage () {
     var file = DOM.imagePicker.files[0]
     var href = URL.createObjectURL(file)
+    var filename = file.path || file.name || ''
 
     DOM.imageUrlInput.value = ''
-    renderPreviewImage({href, filename: file.path})
+    renderPreviewImage({href, filename})
   }
 
   function onChangeImageUrl (e) {
