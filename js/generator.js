@@ -247,6 +247,7 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
 
   function onInputLyrics (e) {
     currentCustomLyrics = e.target.innerText
+    currentLyrics = currentCustomLyrics
   }
 
   function onChangeLyricType (e) {
