@@ -284,17 +284,26 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
   }
 
   function onDropImageDragContainer (e) {
-    var file
-    if (e.dataTransfer.items) {
-      var file = e.dataTransfer.items[0]
-      if (file.kind === 'file' && file.type.startsWith('image/')) {
-        file = files[i].getAsFile()
-        console.log(file.name)
-      }
-    } else {
-      file = e.dataTransfer.files[0]
-    }
+    e.preventDefault()
 
+    if (e.dataTransfer.items) {
+      var data = e.dataTransfer.items[0]
+
+      // data *may* be an image dragged from the browser
+      if (data.kind === 'string' && data.type.match('^text/plain')) {
+        var url = ''
+        data.getAsString(function (str) {
+          fetchImage(str)
+        })
+      } else if (data.kind === 'file' && data.type.match('^image/')) {
+        var file = data.getAsFile()
+        var href = URL.createObjectURL(file)
+        renderPreviewImage({href, filename: file.path})
+      } else {
+        addClass([DOM.imagePickerFeedback], 'error')
+        render(DOM.imagePickerFeedback, ERRORS.invalidFileType)
+      }
+    }
     DOM.imageDragContainer.classList.remove('dragging')
   }
 
@@ -306,19 +315,7 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
     renderPreviewImage({href, filename: file.path})
   }
 
-  async function onChangeImageUrl (e) {
-    const reset = function () {
-      removeClass([DOM.imagePickerFeedback, DOM.imageUrlInput], 'error')
-      render(DOM.imagePickerFeedback, '')
-      render(DOM.previewImageCaption, '')
-      DOM.previewImage.src = ''
-    }
-
-    const setErrors = function (msg) {
-      addClass([DOM.imagePickerFeedback, DOM.imageUrlInput], 'error')
-      render(DOM.imagePickerFeedback, msg)
-    }
-
+  function onChangeImageUrl (e) {
     var url = e.target.value.trim()
     reset()
 
