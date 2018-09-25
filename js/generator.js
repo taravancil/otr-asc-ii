@@ -1,9 +1,10 @@
 import {$, render, timeout} from '/js/utils.js'
-import {ERRORS} from '/js/const.js'
+import {ERRORS, SONG_PATHS} from '/js/const.js'
 
 (function () {
   var a
   var songs = []
+  var currentSong = {}
   var currentLyrics = ''
   var currentCustomLyrics = ''
 
@@ -30,12 +31,15 @@ import {ERRORS} from '/js/const.js'
   setup()
 
   async function setup () {
-    a = new DatArchive(window.location)
-    var songPaths = await a.readdir('/songs')
-    songPaths = songPaths.sort()
+    var readSong = readFileFetch
 
-    for (var i = 0; i < songPaths.length; i++) {
-      var song = JSON.parse(await a.readFile(`/songs/${songPaths[i]}`))
+    if (window.DatArchive) {
+      a = new DatArchive(window.location)
+      readSong = readFileDat
+    }
+
+    for (var i = 0; i < SONG_PATHS.length; i++) {
+      var song = JSON.parse(await readSong(`/songs/${SONG_PATHS[i]}`))
       songs.push(song)
 
       var songEl = document.createElement('option')
@@ -51,6 +55,16 @@ import {ERRORS} from '/js/const.js'
   }
 
   // utils
+  async function readFileDat (path) {
+    const data = await a.readFile(path)
+    return data
+  }
+
+  async function readFileFetch (path) {
+    const res = await fetch(path)
+    return res.body()
+  }
+
   function removeClass (els, classStr) {
     for (var el of els) {
       el.classList.remove(classStr)
