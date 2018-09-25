@@ -175,7 +175,65 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
   DOM.imageDragContainer.addEventListener('dragleave', onStopDragging)
   DOM.imageDragContainer.addEventListener('dragover', onDragOverImageDragContainer)
   DOM.imageDragContainer.addEventListener('drop', onDropImageDragContainer)
+  DOM.closeAsciiButton.addEventListener('click', onCloseAscii)
+  DOM.generateButton.addEventListener('click', onGenerate)
+  DOM.downloadHtmlButton.addEventListener('click', onClickDownloadHtmlButton)
 
+  function onCloseAscii () {
+    addClass([DOM.asciiContainer], 'hidden')
+    removeClass([$('body')], 'noscroll')
+  }
+
+  function onGenerate () {
+    DOM.generateButton.innerText = 'Reading image...'
+    DOM.previewImage[0].style.opacity = '0'
+    DOM.previewImage[0].style.height = 'auto'
+    generatePXON(DOM.previewImage[0])
+    DOM.previewImage[0].style.height = '50px'
+    DOM.previewImage[0].style.opacity = '1'
+  }
+
+  function generatePXON (image) {
+    // draw image on a canvas
+    const tempCanvas = document.createElement('canvas')
+    const tempCtx = tempCanvas.getContext('2d')
+
+    var scale
+    var newWidth = image.width
+    var newHeight = image.height
+
+    if (image.width >= image.height && image.width > 350) {
+      scale = 350 / image.width
+      newWidth = image.width * scale
+      newHeight = image.height * scale
+    } else if (image.height > image.width && image.height > 350) {
+      scale = 350 / image.height
+      newWidth = image.width * scale
+      newHeight = image.height * scale
+    }
+
+    tempCanvas.width = newWidth
+    tempCanvas.height = newHeight
+
+    tempCtx.drawImage(image, 0, 0, newWidth, newHeight)
+
+    // get image data from the canvas
+    const imageData = tempCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height)
+
+    var pxonWorker = new Worker('/js/pxon.js')
+
+    pxonWorker.onmessage = function (message) {
+      var PXON = arrayBufferToStr(message.data)
+
+       DOM.generateButton.innerText = 'Rendering ASCII...'
+      renderAscii(stripLyrics(currentLyrics), PXON)
+    }
+
+    pxonWorker.postMessage({
+      imageData,
+      pixelSize: 3
+    })
+  }
 
   function onChangeSong (e) {
     var i = Number(e.target.value)
@@ -213,6 +271,7 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
   }
 
   function onDragEnterImageDragContainer (e) {
+    DOM.imagePickerFeedback.innerText = ''
     DOM.imageDragContainer.classList.add('dragging')
   }
 
