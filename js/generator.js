@@ -62,7 +62,7 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
 
   async function readFileFetch (path) {
     const res = await fetch(path)
-    return res.body()
+    return res.text()
   }
 
   function removeClass (els, classStr) {
