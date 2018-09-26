@@ -324,7 +324,7 @@ input[type="text"] {
 }
 
 input[type="text"].error {
-  border: 2px dashed;
+  border: 2px dashed var(--error-red);
 }
 
 input[type="radio"] {
