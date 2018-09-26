@@ -1,6 +1,3 @@
-import {$, render, timeout} from '/js/utils.js'
-import {ERRORS, SONG_PATHS} from '/js/const.js'
-
 (function () {
   var a
   var songs = []
@@ -8,6 +5,26 @@ import {ERRORS, SONG_PATHS} from '/js/const.js'
   var currentLyrics = ''
   var currentCustomLyrics = ''
   var readFile = readFileFetch
+
+  const ERRORS = {
+    invalidProtocol: 'Please enter a dat:// or https:// URL',
+    invalidImageUrl: 'Please enter a valid image URL (.png, .jpg, .jpeg)',
+    invalidFileType: 'Invalid file type',
+    timedOut: 'File not found. Request timed out',
+    notFound: 'File not found'
+  }
+
+  const SONG_PATHS = [
+    '0-SUMMER.json',
+    '1-APESHIT.json',
+    '2-BOSS.json',
+    '3-NICE.json',
+    '4-713.json',
+    '5-FRIENDS.json',
+    '6-HEARDABOUTUS.json',
+    '7-BLACKEFFECT.json',
+    '8-LOVEHAPPY.json',
+  ]
 
   var DOM = {
     imageUrlInput: $('input[name="image-url"]'),
