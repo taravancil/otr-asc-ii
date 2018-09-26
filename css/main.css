@@ -117,12 +117,16 @@ figure {
   padding: 10px;
 }
 
-.ascii-container .header .btn {
-  margin: 0;
+.btn.download-html-btn {
+  margin-left: 0;
 }
 
-.ascii-container .header .close-ascii-btn {
+.close-ascii-btn {
   margin-right: auto;
+}
+
+.close-ascii-btn .btn-icon {
+  margin-right: 3px;
 }
 
 select {
@@ -236,13 +240,17 @@ button {
   cursor: pointer;
 }
 
-.btn .icon {
+img.btn-icon {
   height: 13px;
 }
 
-.btn .icon:not(:last-child) {
+.btn-icon--left {
   /* TODO this is not correct for the camera button */
   margin-right: 7px;
+}
+
+.btn-icon--right {
+  margin-left: 7px;
 }
 
 .btn:hover {
