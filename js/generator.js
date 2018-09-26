@@ -360,7 +360,6 @@
     )
 
     DOM.downloadHtmlLink.setAttribute('download', `${filename}.html`)
-    // DOM.downloadHtmlLink.setAttribute('target', '_blank')
     DOM.downloadHtmlLink.click()
   }
 
