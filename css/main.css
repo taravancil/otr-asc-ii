@@ -359,8 +359,16 @@ textarea {
   height: 200px;
 }
 
+input.url-input {
+  flex: 3;
+  margin-right: 10px;
+}
+
 label[for="image-picker"] {
   position: relative;
+  flex: 1;
+  justify-content: center;
+  margin-left: 0;
 }
 
 #image-drag-container {
