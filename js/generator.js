@@ -419,7 +419,8 @@
       }
     } else if (urlp.protocol.startsWith('http')) {
       try {
-        var res = await timeout(2000, experimental.globalFetch(url))
+        // TODO need to wait for user to approve
+        var res = await timeout(10000, experimental.globalFetch(url))
         var blob = await res.blob()
 
         if (blob.type.startsWith('image')) {
