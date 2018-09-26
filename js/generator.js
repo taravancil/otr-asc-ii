@@ -179,7 +179,7 @@
     removeClass([DOM.asciiContainer], 'hidden')
     $('html').scrollTop = 0
     addClass([$('body')], 'noscroll')
-    DOM.generateButton.innerText = 'Generate'
+    DOM.generateButton.innerHTML =  'Generate ASCII <span class="btn-icon btn-icon--right" aria-hidden="true">&rarr;</span>'
   }
 
   // events
