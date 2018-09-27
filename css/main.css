@@ -205,7 +205,7 @@ select.song-picker {
 }
 
 a {
-  color: #000;
+  color: inherit;
 }
 
 a:hover {
