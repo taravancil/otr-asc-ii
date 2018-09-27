@@ -25,6 +25,10 @@
   font-weight: 700;
 }
 
+.small-text {
+  font-size: 13.5px;
+}
+
 body {
   position: relative;
   margin: 0;
