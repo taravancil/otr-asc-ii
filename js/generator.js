@@ -43,7 +43,8 @@
     closeAsciiButton: $('.close-ascii-btn'),
     generateButton: $('.generate-btn'),
     downloadHtmlLink: $('.download-html-link'),
-    downloadHtmlButton: $('.download-html-btn')
+    downloadHtmlButton: $('.download-html-btn'),
+    themePicker: $('.theme-form')
   }
 
   setup()
@@ -196,10 +197,15 @@
   DOM.closeAsciiButton.addEventListener('click', onCloseAscii)
   DOM.generateButton.addEventListener('click', onGenerate)
   DOM.downloadHtmlButton.addEventListener('click', onClickDownloadHtmlButton)
+  DOM.themePicker.addEventListener('change', onChangeAsciiTheme)
 
   function onCloseAscii () {
     addClass([DOM.asciiContainer], 'hidden')
     removeClass([$('body')], 'noscroll')
+  }
+
+  function onChangeAsciiTheme (e) {
+    DOM.ascii.classList.toggle('dark')
   }
 
   function onGenerate () {
@@ -364,12 +370,13 @@
   }
 
   async function generateAsciiHtml () {
-    var css = await readFile('/css/ascii.css')
+    const css = await readFile('/css/ascii.css')
+    const theme = $('input#themeDark').checked ? 'dark' : ''
 
     return `
       <html>
         <style>${css}</style>
-        <div class="ascii">${DOM.ascii.innerHTML}</div>
+        <div class="ascii ${theme}">${DOM.ascii.innerHTML}</div>
       </html>
     `
   }

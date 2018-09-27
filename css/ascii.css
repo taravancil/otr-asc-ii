@@ -12,6 +12,7 @@
 .ascii.dark .ascii-column {
   background: #000;
 }
+
 .ascii-column {
   display: inline-block;
   line-height: 5px;
