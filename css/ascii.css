@@ -1,4 +1,4 @@
-#ascii {
+.ascii {
   flex-wrap: nowrap;
   max-height: calc(100vh - 100px);
   margin: 10px 0;
@@ -9,12 +9,15 @@
   text-align: center;
 }
 
-#ascii .column {
+.ascii.dark .ascii-column {
+  background: #000;
+}
+.ascii-column {
   display: inline-block;
   line-height: 5px;
 }
 
-#ascii .char {
+.ascii-char {
   display: inline-block;
   width: 5px;
   height: 5px;

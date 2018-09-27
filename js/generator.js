@@ -28,9 +28,9 @@
 
   var DOM = {
     imageUrlInput: $('input[name="image-url"]'),
-    imagePicker: $('#image-picker'),
-    imagePickerFeedback: $('#image-picker-feedback'),
-    imageDragContainer: $('#image-drag-container'),
+    imagePicker: $('.image-picker'),
+    imagePickerFeedback: $('.image-picker-feedback'),
+    imageDragContainer: $('.image-drag-container'),
     previewImage: $('.preview-image'),
     submitFooter: $('.form-submit-footer'),
     songPicker: $('.song-picker'),
@@ -38,7 +38,7 @@
     lyricType: $('input[name="lyric-type"]'),
     lyrics: $('.lyrics-preview'),
     tidalLink: $('.tidal-link'),
-    ascii: $('#ascii'),
+    ascii: $('.ascii'),
     asciiContainer: $('.ascii-container'),
     closeAsciiButton: $('.close-ascii-btn'),
     generateButton: $('.generate-btn'),
@@ -144,7 +144,7 @@
     var pixels = JSON.parse(pxon).pxif.pixels
 
     var html = ''
-    var column = '<div class="column">'
+    var column = '<div class="ascii-column">'
     var currentColumn = 0
     var lyricsIdx = 0
 
@@ -163,13 +163,13 @@
           currentColumn = pixel.x
           column += '</div>'
           html += column
-          column = '<div class="column">'
+          column = '<div class="ascii-column">'
         }
 
         if (char) {
-          var shadow =  `text-shadow: .4px .4px ${pixel.color};`
+          var shadow =  `text-shadow: .6px .6px ${pixel.color};`
           var color = `color: ${pixel.color};`
-          column += `<span class="char" style="${color} ${shadow}">${char}</span><br>`
+          column += `<span class="ascii-char" style="${color} ${shadow}">${char}</span><br>`
 
         }
       }
@@ -270,7 +270,7 @@
   }
 
   function onChangeLyricType (e) {
-    var type = e.target.id
+    var type = e.target.value
 
     var currentSong = songs[Number(DOM.songPicker.value)]
     if (type === 'eil') {
@@ -369,7 +369,7 @@
     return `
       <html>
         <style>${css}</style>
-        <div id="ascii">${DOM.ascii.innerHTML}</div>
+        <div class="ascii">${DOM.ascii.innerHTML}</div>
       </html>
     `
   }

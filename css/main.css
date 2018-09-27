@@ -280,10 +280,10 @@ img.btn-icon {
 
 .step h2 {
   margin-top: 0;
-  /* margin-left: -30px; */
+  font-size: 1.25rem;
 }
 
-.feedback {
+.image-picker-feedback {
   position: absolute;
   bottom: 10px;
   max-width: calc(100% - 35px);
@@ -293,7 +293,7 @@ img.btn-icon {
   font-weight: 700;
 }
 
-.feedback.error {
+.image-picker-feedback.error {
   color: var(--error-red);
 }
 
@@ -371,17 +371,17 @@ label[for="image-picker"] {
   margin-left: 0;
 }
 
-#image-drag-container {
+.image-drag-container {
   border: 2px dashed;
   padding: 15px;
   height: 250px;
 }
 
-#image-drag-container.dragging {
+.image-drag-container.dragging {
   background: var(--highlight-yellow);
 }
 
-#image-drag-container .label {
+.image-drag-container .label {
   position: absolute;
   content: 'Drag an image';
   left: 50%;
@@ -391,14 +391,14 @@ label[for="image-picker"] {
   font-weight: 500;
 }
 
-#image-drag-container .label .icon {
+.image-drag-container .label .icon {
   width: 15px;
   height: 15px;
   margin-right: 5px;
 }
 
 
-#image-picker {
+.image-picker {
   position: absolute;
   left: 0;
   top: 0;
@@ -430,11 +430,7 @@ label[for="image-picker"] {
 .step.image-upload .preview-image {
   position: absolute;
   right: 0;
-  top: -5px;
-}
-
-#preview-image-caption {
-  font-size: 12.5px;
+  top: -10px;
 }
 
 /* UTILS */

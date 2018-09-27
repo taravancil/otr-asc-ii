@@ -57,7 +57,7 @@
         <a class="download-html-link hidden"></a>
       </div>
 
-      <div id="ascii"></div>
+      <div class="ascii"></div>
     </div>
 
   	<div class="container">
@@ -68,7 +68,7 @@
             <img class="preview-image">
           </h2>
 
-          <div id="image-drag-container">
+          <div class="image-drag-container">
             <div class="label flex">
               <img class="icon" src="/images/drag-n-drop.svg"/>
               Drag an image
@@ -80,11 +80,11 @@
               <label class="btn" for="image-picker">
                 <img class="btn-icon btn-icon--left" src="/images/camera-white.svg"/>
                 Select image
-                <input type="file" accept="image/*" id="image-picker" />
+                <input type="file" accept="image/*" class="image-picker" />
               </label>
             </div>
 
-            <div id="image-picker-feedback" class="feedback flex"></div>
+            <div class="image-picker-feedback flex"></div>
           </div>
         </div>
 
@@ -93,12 +93,12 @@
 
           <div class="flex lyric-type">
             <label for="eil" class="inline-flex">
-              <input name="lyric-type" id="eil" type="radio" checked />
+              <input name="lyric-type" value="eil" type="radio" checked />
               Select a song from EVERYTHING IS LOVE
             </label>
 
             <label for="custom" class="inline-flex">
-              <input name="lyric-type" id="custom" type="radio" />
+              <input name="lyric-type" value="custom" type="radio" />
               Enter custom text
             </label>
           </div>
