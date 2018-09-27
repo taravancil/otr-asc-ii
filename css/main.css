@@ -204,14 +204,6 @@ select.song-picker {
   font-weight: 500;
 }
 
-h1 {
-  margin: 0;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  font-size: 30px;
-  letter-spacing: 1px;
-}
-
 a {
   color: #000;
 }
