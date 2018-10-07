@@ -44,7 +44,7 @@
         // TODO 404
       }
     } else if (currentItem) {
-      DOM.currentItem.remove()
+      DOM.classList.add('hidden')
     }
   }
 
