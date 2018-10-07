@@ -1,8 +1,12 @@
+body {
+  margin: 0;
+}
+
 .ascii {
   flex-wrap: nowrap;
-  max-height: calc(100vh - 100px);
+  max-height: 400px;
   margin: 10px 0;
-  overflow: auto;
+  overflow: hidden;
   background: #fff;
   font-family: 'Courier New', monospace;
   font-weight: bold;
