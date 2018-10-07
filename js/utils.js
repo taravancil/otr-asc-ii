@@ -8,6 +8,14 @@ function render (targetEl, html) {
   targetEl.innerHTML = html
 }
 
+function dateStr (date) {
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+  return `
+    ${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}
+  `
+}
+
 function timeout (ms, promise) {
   return new Promise(function(resolve, reject) {
     setTimeout(function() {
