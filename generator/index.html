@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
 
     <link rel="shortcut icon" href="/favicon.png">
 
@@ -15,7 +16,7 @@
     <link rel="stylesheet" href="/css/ascii.css" />
   </head>
 
-  <body>
+  <body class="generator">
     <style>
       body {
         --jay-z-blue: blue;
@@ -28,15 +29,16 @@
       <a class="inline-flex" href="https://tidal.com/album/90521280" target="_blank">
         <img class="album-cover" src="/images/EVERYTHINGISLOVE.jpg"/>
         <span>
-          <span class="desktop-text">Listen to </span>
-          EVERYTHING IS LOVE
-          <span class="desktop-text">on TIDAL </span>
+          <span class="desktop-text">
+            Listen to EVERYTHING IS LOVE on TIDAL
+          </span>
+          <span class="mobile-text">EIL</span>
           <img class="mobile-text tidal-logo" src="/images/tidal.png">
         </span>
       </a>
 
       <a href="http://www.ticketmaster.com/OTRII">
-        <span class="desktop-text">Buy </span>OTRII tickets
+        Buy OTRII tickets
       </a>
     </header>
 
@@ -48,7 +50,7 @@
         </button>
 
         <form class="theme-form flex">
-          <p>Background color</p>
+          <p>Background <span class="desktop-text">color</span></p>
 
           <label for="themeLight" class="hidden-but-not">White</label>
           <input name="theme" id="themeLight" value="light" class="theme-input" type="radio" checked>
@@ -104,7 +106,8 @@
           <div class="flex lyric-type">
             <label for="eil" class="inline-flex">
               <input name="lyric-type" value="eil" type="radio" checked />
-              Select a song from EVERYTHING IS LOVE
+              <span class="desktop-text">Select a song from EVERYTHING IS LOVE</span>
+              <span class="mobile-text">EVERYTHING IS LOVE</span>
             </label>
 
             <label for="custom" class="inline-flex">
