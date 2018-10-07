@@ -25,10 +25,15 @@
     url('dat://fonts.taravancil.com/inter-ui/Inter-UI-Bold.woff') format('woff'),
     url('dat://fonts.taravancil.com/inter-ui/Inter-UI-Bold.woff') format('woff');
   font-weight: 700;
+  font-display: optional;
 }
 
 .small-text {
   font-size: 13.5px;
+}
+
+.large-text {
+  font-size: 18px;
 }
 
 body {
