@@ -4,7 +4,6 @@
   var currentSong = {}
   var currentLyrics = ''
   var currentCustomLyrics = ''
-  var readFile = readFileFetch
 
   const ERRORS = {
     invalidProtocol: 'Please enter a dat:// or https:// URL',
@@ -48,17 +47,9 @@
   }
 
   setup()
-
   async function setup () {
-    var readFile = readFileFetch
-
-    if (window.DatArchive) {
-      a = new DatArchive(window.location)
-      readFile = readFileDat
-    }
-
     for (var i = 0; i < SONG_PATHS.length; i++) {
-      var song = JSON.parse(await readFile(`/songs/${SONG_PATHS[i]}`))
+      var song = JSON.parse(await readFile(`/data/songs/${SONG_PATHS[i]}`))
       songs.push(song)
 
       var songEl = document.createElement('option')
@@ -71,17 +62,6 @@
     currentLyrics = currentSong.lyrics
     DOM.lyrics.innerText = currentSong.lyrics
     render(DOM.tidalLink, renderTidalLink(currentSong))
-  }
-
-  // utils
-  async function readFileDat (path) {
-    const data = await a.readFile(path, 'utf8')
-    return data
-  }
-
-  async function readFileFetch (path) {
-    const res = await fetch(path)
-    return res.text()
   }
 
   function removeClass (els, classStr) {

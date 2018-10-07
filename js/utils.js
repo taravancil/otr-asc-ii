@@ -16,3 +16,13 @@ function timeout (ms, promise) {
     promise.then(resolve, reject)
   })
 }
+
+async function readFileDat (path) {
+  const data = await a.readFile(path, 'utf8')
+  return data
+}
+
+async function readFileFetch (path) {
+  const res = await fetch(path)
+  return res.text()
+}
