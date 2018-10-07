@@ -7,6 +7,7 @@
   src:
     url('dat://fonts.taravancil.com/inter-ui/Inter-UI-Regular.woff') format('woff'),
     url('https://fonts.taravancil.com/inter-ui/Inter-UI-Regular.woff') format('woff');
+    font-display: optional;
 }
 
 @font-face {
@@ -15,6 +16,7 @@
     url('dat://fonts.taravancil.com/inter-ui/Inter-UI-Medium.woff') format('woff'),
     url('https://fonts.taravancil.com/inter-ui/Inter-UI-Medium.woff') format('woff');
   font-weight: 500;
+  font-display: optional;
 }
 
 @font-face {
