@@ -531,6 +531,7 @@ p {
 .form-submit-footer {
   position: fixed;
   bottom: 0;
+  z-index: 1;
   width: calc(100% - 20px);
   max-width: 630px;
   padding: 5px 0 10px 0;
