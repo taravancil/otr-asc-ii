@@ -249,7 +249,8 @@ label[for="image-picker"] {
 }
 
 .theme-form {
-  margin-right: 15px;
+  flex: 1;
+  margin-left: 10px;
 }
 
 input[name="theme"] {
@@ -296,7 +297,7 @@ input[name="theme"]:checked:after {
   line-height: 40px;
   text-align: center;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 input[name="theme"][value="dark"]:checked:after {
