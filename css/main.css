@@ -363,6 +363,11 @@ select.song-picker {
 }
 
 .lyric-type {
+  margin-bottom: 5px;
+  flex-wrap: wrap;
+}
+
+.lyric-type label {
   margin-bottom: 10px;
 }
 
