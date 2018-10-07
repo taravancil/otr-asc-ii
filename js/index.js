@@ -25,7 +25,6 @@
   }
 
   function loadURL () {
-    console.log('loadURL')
     if (window.location.hash) {
       const key = window.location.hash.slice(1)
 
@@ -36,7 +35,6 @@
         $('iframe').classList.add('transparent')
 
         // TODO nextItem, prevItem
-        // $('iframe').classList.remove('hidden-but-not')
 
         window.setTimeout(function () {
           $('iframe').classList.remove('transparent')
