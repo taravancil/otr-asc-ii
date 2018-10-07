@@ -453,6 +453,16 @@ img.btn-icon {
   background: var(--jay-z-blue);
 }
 
+h1 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  line-height: 1;
+}
+
+p {
+  max-width: 650px;
+}
+
 .step {
   position: relative;
   display: block;
