@@ -353,7 +353,7 @@ select {
   margin-left: -55px;
   padding-left: 60px;
   z-index: 1;
-  background: transparent;;
+  background: transparent;
   width: calc(100% + 85px);
   border: 2px solid;
 }
