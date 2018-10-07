@@ -148,7 +148,7 @@
         }
 
         if (char) {
-          var shadow =  `text-shadow: .6px .6px ${pixel.color};`
+          var shadow =  `text-shadow: .75px .75px ${pixel.color};`
           var color = `color: ${pixel.color};`
           column += `<span class="ascii-char" style="${color} ${shadow}">${char}</span><br>`
 
