@@ -51,6 +51,50 @@ body,
   font-size: 16px;
 }
 
+/* UTILS */
+
+.flex,
+.inline-flex {
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.hidden-but-not {
+  position: absolute;
+  left: -1000%;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.desktop-text {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .desktop-text {
+    display: initial;
+  }
+
+  .mobile-text {
+    display: none;
+  }
+}
+
+
 body.noscroll {
   overflow: hidden;
 }
@@ -498,22 +542,30 @@ img.btn-icon {
 
 /* UTILS */
 
-.flex,
-.inline-flex {
-  flex-wrap: nowrap;
-  align-items: center;
+::-webkit-scrollbar-track {
+  background: #fff;
 }
 
-.flex {
-  display: flex;
+::-webkit-scrollbar-thumb {
+  display: block;
+  background: #000;
+  margin: 5px;
 }
 
-.inline-flex {
-  display: inline-flex;
+/* gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  grid-gap: 15px;
 }
 
-.hidden {
-  display: none;
+.gallery-grid-item {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid;
+  height: 140px;
+  text-decoration: none;
+  background: #000;
 }
 
 .hidden-but-not {
