@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+
     <title>OTR (ASC)II</title>
 
     <link rel="shortcut icon" href="/favicon.png">
@@ -16,17 +18,33 @@
   </head>
 
   <body>
-    <style>body { --jay-z-blue: blue; }</style>
+    <style>
+      body {
+        --jay-z-blue: blue;
+        --error-red: red;
+        --highlight-yellow: yellow;
+      }
+    </style>
 
-  	<div class="container">
-  	  <h1>OTR (ASC)II</h1>
+  	<div class="container wide">
+      <h1>OTR (ASC)II</h1>
+      <p class="small-text">
+        <a href="https://en.wikipedia.org/wiki/Ascii_art">ASCII art</a> is a technique for rendering images, cartoons, words, and more with the 95 printable <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> characters.
+      </p>
 
-  	  <label for="upload-pxon">Select a PXON file</label>
-  	  <input type="file" id="upload-pxon"/>
+      <p class="small-text">
+        This is an <strong>in progress</strong> collection of images from Beyoncé and Jay-Z's OTR II tour, rendered as ASCII art. Use the <a href="/generator">generator</a> to make your own</a>.
+      </p>
+    </div>
 
-  	  <div id="ascii" class="flex"></div>
+    <main class="current-item hidden z-top"></main>
 
-  	</div>
+    <div class="container wide">
+      <div class="gallery-grid"></div>
+    </div>
+
+    <script src="/js/utils.js"></script>
+    <script src="/js/dat.js"></script>
+    <script src="/js/index.js"></script>
   </body>
-  <script src="/js/index.js" type="text/javascript"></script>
 </html>
