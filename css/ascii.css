@@ -4,8 +4,6 @@ body {
 
 .ascii {
   flex-wrap: nowrap;
-  max-height: 400px;
-  margin: 10px 0;
   overflow: hidden;
   font-family: "Courier New", monospace;
   font-weight: bold;
