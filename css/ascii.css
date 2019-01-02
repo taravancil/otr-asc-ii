@@ -7,8 +7,7 @@ body {
   max-height: 400px;
   margin: 10px 0;
   overflow: hidden;
-  background: #fff;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-weight: bold;
   text-align: center;
 }

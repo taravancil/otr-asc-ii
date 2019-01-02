@@ -1,39 +1,7 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
-}
-
-@font-face {
-  font-family: 'Inter UI';
-  src:
-    url('dat://fonts.taravancil.com/inter-ui/Inter-UI-Regular.woff') format('woff'),
-    url('https://fonts.taravancil.com/inter-ui/Inter-UI-Regular.woff') format('woff');
-    font-display: optional;
-}
-
-@font-face {
-  font-family: 'Inter UI';
-  src:
-    url('dat://fonts.taravancil.com/inter-ui/Inter-UI-Medium.woff') format('woff'),
-    url('https://fonts.taravancil.com/inter-ui/Inter-UI-Medium.woff') format('woff');
-  font-weight: 500;
-  font-display: optional;
-}
-
-@font-face {
-  font-family: 'Inter UI';
-  src:
-    url('dat://fonts.taravancil.com/inter-ui/Inter-UI-Bold.woff') format('woff'),
-    url('dat://fonts.taravancil.com/inter-ui/Inter-UI-Bold.woff') format('woff');
-  font-weight: 700;
-  font-display: optional;
-}
-
-.small-text {
-  font-size: 13.5px;
-}
-
-.large-text {
-  font-size: 18px;
 }
 
 body {
