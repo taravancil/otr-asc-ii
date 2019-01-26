@@ -2,14 +2,16 @@
         <style>body {
   margin: 0;
 }
-
 .ascii {
+  display: flex;
   flex-wrap: nowrap;
-  margin: 10px 0;
-  overflow: hidden;
-  font-family: 'Courier New', monospace;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  font-family: "Courier New", monospace;
   font-weight: bold;
   text-align: center;
+  justify-content: center;
 }
 
 .ascii.dark .ascii-column {

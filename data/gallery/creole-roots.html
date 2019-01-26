@@ -5,11 +5,20 @@
 }
 
 .ascii {
+  display: flex;
   flex-wrap: nowrap;
-  overflow: hidden;
-  font-family: 'Courier New', monospace;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  font-family: "Courier New", monospace;
   font-weight: bold;
   text-align: center;
+}
+
+@media (max-width: 900px) {
+  .ascii {
+    justify-content: center;
+  }
 }
 
 .ascii.dark .ascii-column {
