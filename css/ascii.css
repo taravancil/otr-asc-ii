@@ -6,7 +6,7 @@ body {
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
   font-family: "Courier New", monospace;
   font-weight: bold;

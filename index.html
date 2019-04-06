@@ -19,8 +19,8 @@
     />
     <meta property="og:image" content="/favicon.png" />
 
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/ascii.css" />
+    <link rel="stylesheet" href="/css/shared.css" />
+    <link rel="stylesheet" href="/css/home.css" />
   </head>
 
   <body>
@@ -47,12 +47,14 @@
           <a href="https://en.wikipedia.org/wiki/On_the_Run_II_Tour"
             >OTR II tour</a
           >, rendered as ASCII art. Hand-crafted by
-          <a href="https://taravancil.com">Tara Vancil</a>. Forever in-progress.
+          <a href="https://taravancil.com">Tara Vancil</a>.
         </p>
 
-        <div class="flex">
+        <div class="flex cta-btns">
           <a href="#gallery" class="btn">View the collection</a>
-          <a href="/generator" class="btn btn--plain">Generate your own</a>
+          <a href="/generator" class="btn btn--plain desktop-text"
+            >Generate your own</a
+          >
         </div>
       </div>
     </section>
@@ -65,15 +67,67 @@
       </div>
     </section>
 
+    <div class="black-bg" style="padding: 0 0 20px 0;">
+      <div class="container container--wide">
+        <div aria-hidden="true" class="hive-spacer"></div>
+        <div class="thank-you columns white-bg">
+          <div class="col col-3-5">
+            <h2 class="inline-heading">
+              <strong> Never forget to say thank you </strong>
+            </h2>
+            <p>
+              This project is my expression of gratitude to Beyoncé, Jay-Z,
+              Parkwood Entertainment, and Roc Nation for making OTR II happen.
+            </p>
+
+            <p>
+              To the dancers, stylists, designers, videographers, photographers,
+              choreographers, publicists, band members, vocalists, seamstresses,
+              creative directors, and every single person who had a hand in
+              bringing OTR II to life—<em>thank you</em>.
+            </p>
+
+            <p>xo <a href="https://taravancil.com">Tara</a></p>
+          </div>
+
+          <div class="thank-you__about-me col col-2-5">
+            <p>
+              I'm <a href="https://taravancil.com">Tara Vancil</a>, a software
+              developer at <a href="https://glitch.com">Glitch</a>. I build
+              things on the Web, sometimes useful, sometimes silly, other times
+              just plain weird.
+            </p>
+
+            <p>Subscribe to my newsletter to get updates about new projects</p>
+
+            <form
+              action="https://tinyletter.com/taravancil"
+              method="post"
+              target="popupwindow"
+              onsubmit="window.open('https://tinyletter.com/taravancil', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"
+            >
+              <label class="std-label" for="tlemail">
+                <strong>Your email address</strong>
+              </label>
+
+              <div class="flex">
+                <input type="email" name="email" id="tlemail" />
+                <input type="hidden" value="1" name="embed" />
+                <button class="btn">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div aria-hidden="true" class="hive-spacer"></div>
+      </div>
+
+      <div class="copyright center">© 2019 Tara Vancil</div>
+    </div>
+
     <script src="/js/utils.js"></script>
+    <script src="/js/gallery-grid-item.js"></script>
     <script src="/js/dat.js"></script>
+    <script src="/js/body-scroll-lock.min.js"></script>
     <script src="/js/index.js"></script>
-    <script>
-      function resizeIframe(iframe) {
-        iframe.style.height = `${
-          iframe.contentWindow.document.body.scrollHeight
-        }px`;
-      }
-    </script>
   </body>
 </html>
