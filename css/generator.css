@@ -1,0 +1,314 @@
+body.generator {
+  padding: 120px 0;
+}
+
+.noscroll {
+  overflow: hidden;
+}
+
+header {
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  width: 100%;
+  padding: 10px;
+  background: #000;
+}
+
+header .album-cover {
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+}
+
+header .tidal-logo {
+  width: auto;
+  height: 13px;
+  margin-left: 5px;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.ascii {
+  justify-content: center;
+}
+
+.ascii-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  background: #fff;
+}
+
+.ascii-container .header {
+  padding: 10px;
+}
+
+form .group.actions {
+  justify-content: space-between;
+}
+
+.input-group:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+label:not(.btn) {
+  margin-right: 30px;
+  font-weight: 500;
+}
+
+input.url-input {
+  flex: 3;
+  margin-right: 10px;
+}
+
+.step {
+  position: relative;
+  display: block;
+}
+
+.step:not(:first-of-type) {
+  margin-top: 40px;
+}
+
+.step h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.step.image-upload .preview-image {
+  position: absolute;
+  right: 0;
+  top: -10px;
+}
+
+.form-submit-footer {
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  width: calc(100% - 20px);
+  max-width: 630px;
+  padding: 5px 0 10px 0;
+  background: #fff;
+}
+
+.generate-btn {
+  flex: 1;
+  justify-content: center;
+}
+
+.preview-image {
+  height: 50px;
+  width: auto;
+}
+
+label[for="image-picker"] {
+  position: relative;
+  justify-content: center;
+  margin-left: 0;
+}
+
+.image-picker-feedback {
+  position: absolute;
+  bottom: 10px;
+  max-width: calc(100% - 35px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.image-picker-feedback.error {
+  color: var(--error-red);
+}
+
+.image-drag-container {
+  border: 2px dashed;
+  padding: 15px;
+  height: 250px;
+}
+
+.image-drag-container.dragging {
+  background: var(--highlight-yellow);
+}
+
+.image-drag-container .label {
+  position: absolute;
+  content: "Drag an image";
+  left: 50%;
+  top: 60%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.image-drag-container .label .icon {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+.image-picker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.theme-form {
+  flex: 1;
+  margin-left: 10px;
+}
+
+input[name="theme"] {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 0 0 0 10px;
+  cursor: pointer;
+}
+
+input[name="theme"]:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  content: "";
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border: 2px solid;
+  border-radius: 50%;
+  background: #fff;
+}
+
+input[name="theme"][value="dark"]:before {
+  background: #000;
+}
+
+input[name="theme"][value="dark"]:after {
+  color: #fff;
+}
+
+input[name="theme"],
+input[name="theme"]:checked {
+  border: 0;
+}
+
+input[name="theme"]:checked:after {
+  position: absolute;
+  display: block;
+  content: "\2713";
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+input[name="theme"][value="dark"]:checked:after {
+  font-weight: 400;
+}
+
+.btn.download-html-btn {
+  margin-left: 0;
+}
+
+.close-ascii-btn {
+  margin-right: auto;
+}
+
+.close-ascii-btn .btn-icon {
+  margin-right: 3px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 0;
+  font-size: inherit;
+  font-weight: 500;
+}
+
+.select-wrapper {
+  position: relative;
+  display: block;
+  padding-left: 55px;
+}
+
+.select-wrapper:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  content: "▾";
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  line-height: 50px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+}
+
+.select-wrapper select {
+  position: relative;
+  margin-left: -55px;
+  padding-left: 60px;
+  z-index: 1;
+  background: transparent;
+  width: calc(100% + 85px);
+  border: 2px solid;
+}
+
+select.song-picker {
+  border-bottom: 0;
+}
+
+.lyric-type {
+  margin-bottom: 5px;
+  flex-wrap: wrap;
+}
+
+.lyric-type label {
+  margin-bottom: 10px;
+}
+
+.lyrics-preview {
+  height: 200px;
+  padding: 10px 15px;
+  border: 2px solid;
+  overflow-y: auto;
+  line-height: 2;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.lyrics-preview[contenteditable] {
+  height: 250px;
+}
+
+.tidal-link a {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: 500;
+}

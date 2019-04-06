@@ -1,0 +1,162 @@
+body.gallery-item {
+  padding: 10px;
+  background: #000;
+  color: #fff;
+}
+
+@media (min-width: 650px) {
+  body.gallery-item {
+    padding: 20px;
+  }
+}
+
+nav {
+  margin: 0 0 20px 0;
+}
+
+.current-item-wrapper {
+  background: rgba(255, 255, 255, 0.9);
+  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.current-item-navigation {
+  margin: 40px 0 0 0;
+  border-bottom: 20px solid #000;
+  grid-template-columns: 1fr;
+}
+
+.current-item-navigation .gallery-grid-item:last-child {
+  grid-row: 1;
+}
+
+@media (min-width: 750px) {
+  .current-item-navigation {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .current-item-navigation .gallery-grid-item:last-child {
+    grid-row: initial;
+  }
+}
+
+.current-item-info,
+.current-item-image {
+  flex-basis: 100%;
+}
+
+.current-item-info {
+  margin: 20px 0 0 0;
+}
+
+.current-item-image-wrapper,
+.current-item-container {
+  flex-wrap: wrap;
+}
+
+.current-item-image {
+  min-height: 400px;
+}
+
+@media (min-width: 900px) {
+  .current-item-image {
+    flex-basis: 600px;
+  }
+
+  .current-item-info {
+    flex: 1;
+    min-width: 200px;
+    margin: 0 0 0 20px;
+  }
+}
+
+.current-item iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  transition: 0.75s opacity;
+  transition-delay: 1s;
+  overflow: hidden;
+}
+
+.current-item iframe .ascii {
+  height: 100%;
+}
+
+.current-item-lyrics {
+  white-space: pre-line;
+}
+
+.current-item-listen-link {
+  margin: 40px 0 0 0;
+}
+
+.current-item-credits {
+  margin: 20px 0 0 0;
+}
+
+.current-item-credits {
+  flex-wrap: wrap;
+}
+
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip-container:hover:after {
+  display: block;
+  content: attr(data-tooltip-content);
+  position: absolute;
+  left: 0;
+  top: calc(100% + 10px);
+  padding: 8px;
+  background: #fff;
+  color: #000;
+  font-size: 1.15em;
+  font-weight: bold;
+  text-align: left;
+  border: 1px dotted;
+}
+
+.help-tooltip {
+  width: 15px;
+  height: 15px;
+  line-height: 14px;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 50%;
+  cursor: help;
+  margin: -1px 0 0 10px;
+}
+
+#width-notice {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  left: 0;
+  top: 0;
+  width: calc(100% - 40px);
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px 15px;
+  font-weight: bold;
+  background: var(--highlight-yellow);
+  justify-content: space-between;
+  color: #000;
+}
+
+#width-notice .btn {
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+  background: none;
+  border: 1px solid;
+  color: #000;
+}
+
+@media (min-width: 620px) {
+  #width-notice {
+    display: none;
+  }
+}

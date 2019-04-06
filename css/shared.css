@@ -1,0 +1,413 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  line-height: 1.5;
+  color: #000;
+  overflow-x: hidden;
+}
+
+body,
+*::after,
+*::before {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+}
+
+.small-text {
+  font-size: 0.775em;
+}
+
+.large-text {
+  font-size: 1.25em;
+}
+
+@media (min-width: 600px) {
+  .large-text {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 800px) {
+  .large-text {
+    font-size: 2em;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: var(--jay-z-blue);
+}
+
+a:focus {
+  outline: 1px dotted;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  line-height: 1;
+}
+
+p {
+  max-width: 950px;
+}
+
+p:first-child {
+  margin-top: 0;
+}
+
+.inline-heading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.btn,
+button {
+  display: inline-flex;
+  align-items: center;
+  line-height: 50px;
+  height: 50px;
+  padding: 0 15px;
+  background: #000;
+  color: #fff;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: inherit;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 0.3px;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: 1px dotted var(--jay-z-blue);
+  background: var(--jay-z-blue);
+}
+
+.btn:not(:first-child) {
+  margin-left: 0;
+}
+
+.btn--plain {
+  height: auto;
+  text-decoration: none;
+  background: none;
+  color: inherit;
+}
+
+img.btn-icon {
+  height: 13px;
+}
+
+.btn-icon--left {
+  /* TODO this is not correct for the camera button */
+  margin-right: 7px;
+}
+
+.btn-icon--right {
+  margin-left: 7px;
+}
+
+.btn:hover {
+  background: var(--jay-z-blue);
+  color: #fff;
+}
+
+.btn--plain:hover {
+  color: initial;
+  background: none;
+  text-decoration: underline;
+}
+
+.btn.primary {
+  background: #000;
+  border: 0;
+  color: #fff;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn.primary:hover {
+  background: var(--jay-z-blue);
+}
+
+.flex,
+.inline-flex {
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.container {
+  width: 100%;
+  max-width: 650px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.container--wide {
+  max-width: 1000px;
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex-basis: 100%;
+  width: 100%;
+}
+
+.col:not(:last-child) {
+  margin: 0 0 20px 0;
+}
+
+@media (min-width: 1000px) {
+  .columns {
+    flex-wrap: nowrap;
+  }
+
+  .col:not(:last-child) {
+    margin: 0 40px 0 0;
+  }
+
+  .col-2-5 {
+    flex-basis: 40%;
+  }
+
+  .col-3-5 {
+    flex-basis: 60%;
+  }
+
+  .col-1-3 {
+    flex-basis: 33%;
+  }
+
+  .col-2-3 {
+    flex-basis: 66%;
+  }
+}
+
+.desktop-text {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .desktop-text {
+    display: initial;
+  }
+
+  .mobile-text {
+    display: none;
+  }
+}
+
+.black-bg {
+  background: #000;
+  color: #fff;
+}
+
+.white-bg {
+  background: #fff;
+  color: #000;
+}
+
+.z-top {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+}
+
+.std-label {
+  display: block;
+  margin: 0 0 3px 0;
+}
+
+select,
+input[type="email"],
+input[type="text"] {
+  height: 50px;
+  width: 100%;
+  border: 2px solid;
+}
+
+input[type="email"],
+input[type="text"] {
+  max-width: 600px;
+  padding: 0 15px;
+  font-family: inherit;
+  font-size: inherit;
+  flex: 1;
+}
+
+input[type="text"].error {
+  border: 2px dashed var(--error-red);
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 15px;
+  height: 15px;
+  margin: 0 5px 0 0;
+  border-radius: 50%;
+  border: 2px solid;
+}
+
+input[type="radio"]:checked {
+  background: #fff;
+  border: 4.5px solid #000;
+}
+
+input:focus,
+*[contenteditable]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--jay-z-blue);
+}
+
+select:focus {
+  outline: none;
+}
+
+textarea {
+  padding: 10px;
+  width: 100%;
+  height: 200px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 15px;
+}
+
+.gallery-grid-item {
+  position: relative;
+  overflow: hidden;
+  height: 140px;
+  text-decoration: none;
+}
+
+.gallery-grid-item:focus {
+  outline: 1px dotted #fff;
+}
+
+.gallery-grid-item-title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+  margin: 0;
+  padding: 7px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-weight: 400;
+  transition: 0.25s ease;
+}
+
+.gallery-grid-item:hover .gallery-grid-item-title {
+  background: rgba(0, 0, 255, 0.5);
+}
+
+.gallery-grid-item-thumb {
+  position: absolute;
+  left: 0;
+  /* top: 20px; */
+  top: 0;
+  z-index: 0;
+  width: 100%;
+  height: auto;
+}
+
+.thank-you {
+  margin: 20px 0;
+  padding: 20px;
+}
+
+.thank-you__about-me {
+  border: 1px solid;
+  padding: 15px;
+}
+
+.thank-you input {
+  border-width: 1px;
+}
+
+hr {
+  border-top: 1px dotted;
+}
+
+.hive-spacer {
+  width: 100%;
+  height: 75px;
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23ffffff' fill-opacity='0.25' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--highlight-yellow);
+  color: #000;
+}
+
+::-moz-selection {
+  background: var(--highlight-yellow);
+  color: #000;
+}
+
+::-webkit-scrollbar {
+  width: 10px; /* for vertical scrollbars */
+  height: 10px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  display: block;
+  background: #000;
+  margin: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.hidden-but-not {
+  position: absolute;
+  left: -1000%;
+}
+
+.transparent {
+  opacity: 0;
+}
